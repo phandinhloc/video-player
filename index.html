@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<video width="80%" controls id ="video-player">
+</video>
+
+<script>
+  function get(name){
+     if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+        return decodeURIComponent(name[1]);
+  }
+  var videoUrl = get('videoUrl');
+  var fromSecond = get('fromSecond') || 0;
+  var player = document.getElementById('video-player');
+  player.src = videoUrl;
+  player.currentTime = fromSecond;
+</script>
+</body>
+</html>
